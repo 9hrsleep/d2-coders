@@ -25,10 +25,6 @@ def dominant_RGB(image_path, num_colors=3):
 
     # Clip and brighten the remaining colors
     colors = np.clip(np.array(colors) * 1.15, 0, 255)
+    colors = colors.round().astype(int)  # Round and convert to integers
 
-    return colors.astype(int)
-
-
-image_path = "t-l.png"  # Replace with your image path
-dominant_colors = dominant_RGB(image_path)
-print("Dominant Colors (RGB):", dominant_colors)
+    return colors.tolist()
