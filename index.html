@@ -1,22 +1,37 @@
-
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title>Barbara's Website</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!---Tells you that styling is done in the file "style.css"-->
-        <link href="style.css" rel="stylesheet" type="text/css" /> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominant Colors</title>
+    <style>
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dominant Colors</h1>
+    <div id="color-container"></div>
 
-        
-    </head>
-
-    <body>
-        <p>
-            Hello World!
-        </p>
-        <!----Tells you that the backend js is in the file "script.js"-->
-        <script src="script.js"></script>
-    </body>
+    <script>
+        // Fetch the colors from the Flask backend (via a JSON route)
+        fetch('/colors')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('color-container');
+                data.forEach(color => {
+                    const colorBox = document.createElement('div');
+                    colorBox.classList.add('color-box');
+                    colorBox.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+                    container.appendChild(colorBox);
+                });
+            })
+            .catch(error => console.error('Error fetching colors:', error));
+    </script>
+</body>
 </html>
