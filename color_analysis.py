@@ -7,7 +7,7 @@ def extract_dominant_colors(image_path, num_colors=3):
     image = cv2.imread(image_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
     pixels = image.reshape(-1, 3)  # Reshape to a list of pixels
-    
+
     # Use KMeans to find dominant colors
     kmeans = KMeans(n_clusters=num_colors)
     kmeans.fit(pixels)
@@ -26,7 +26,7 @@ def extract_dominant_colors(image_path, num_colors=3):
     # Clip and brighten the remaining colors
     colors = np.clip(np.array(colors) * 1.15, 0, 255)
 
-    return colors.astype(int)
+    return colors.tolist()
 
 
 image_path = "t-l.png"  # Replace with your image path
