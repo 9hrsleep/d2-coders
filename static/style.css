@@ -6,3 +6,9 @@
     border: 2px solid #000;
     box-sizing: border-box;
 }
+
+.ad-image {
+    max-height: 400px;  /* Adjust to the desired height */
+    width: 100%;        /* Ensure the image fills the width */
+    object-fit: cover;  /* Ensures the image fills the space and maintains its aspect ratio */
+}

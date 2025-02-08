@@ -21,18 +21,21 @@
 </head>
 
 <body>
-    <h1>Upload an Image to Extract Colors</h1>
+    <h1>Upload Company Logo</h1>
     
     <form action="/analyze" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Analyze</button>
-    </form>
+        <!-- Company Logo Upload -->
+        <label for="logo">Company Logo:</label>
+        <input type="file" name="logo" id="logo" required>
+        <br><br>
 
-    {% if colors %}
-        <h2>Extracted Colors:</h2>
-        {% for color in colors %}
-            <div class="color-box" style="background-color: rgb({{ color[0] }}, {{ color[1] }}, {{ color[2] }});"></div>
-        {% endfor %}
-    {% endif %}
+        <!-- Company Advertisement Upload -->
+        <label for="advertisement">Company Advertisement:</label>
+        <input type="file" name="advertisement" id="advertisement" required>
+        <br><br>
+
+        <button type="submit">Done</button>
+    </form>
 </body>
+
 </html>
