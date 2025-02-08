@@ -29,21 +29,21 @@ def analyze():
     colors = dominant_RGB(file_path)
 
     # After processing the file, redirect to the report page with the image path
-    return redirect(url_for('report', image_path=file_path))
+    return redirect(url_for('report', image_path=file_path, colors = colors))
 
 @app.route("/report")
 def report():
     # Get the image path passed as a query parameter
     image_path = request.args.get('image_path', None)
-    
-    if not image_path:
-        return "No image provided", 400
+    colors = request.args.getlist('colors') 
+   
+    colors = [tuple(map(int, color.strip('[]').replace(' ', '').split(','))) for color in colors]
 
     # Provide default data for the report (replace this as necessary)
     return render_template("report.html",
                            image_url=image_path,  # Dynamically set the image
                            analytics_text="This ad performs well with audience aged 18-25...",
-                           color_palette=["#FF5733", "#33FF57", "#3357FF", "#F3FF33"])
+                           color_palette=colors)
 
 if __name__ == "__main__":
     app.run(debug=True)
