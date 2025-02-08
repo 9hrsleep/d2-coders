@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Analytics Report</title>
+</head>
+<body>
+    <h1>Ad Analytics Report</h1>
+
+    <h2>Image Preview</h2>
+    <img src="{{ image_url }}" alt="Uploaded Ad Image" style="width: 300px; height: auto;">
+
+    <h2>Text Analysis</h2>
+    <p>{{ analytics_text }}</p>
+
+    <h2>Color Palette</h2>
+    <div>
+        {% for color in color_palette %}
+            <div class="color-box" style="background-color: {{ color }};"></div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

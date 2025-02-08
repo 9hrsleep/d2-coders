@@ -28,7 +28,6 @@ def dominant_RGB(image_path, num_colors=3):
 
     return colors.tolist()
 
-
 image_path = "t-l.png"  # Replace with your image path
 dominant_colors = dominant_RGB(image_path)
 print("Dominant Colors (RGB):", dominant_colors)
