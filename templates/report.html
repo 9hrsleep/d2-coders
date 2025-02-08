@@ -7,6 +7,27 @@
     <title>Quality Report</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        p {
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+        }
+    
+        .bullet {
+          display: block; /* Make each bullet point appear on a new line */
+          margin-left: 20px; /* Indent bullet points */
+          position: relative;
+        }
+    
+        .bullet::before {
+          content: "•"; /* Custom bullet symbol */
+          color: #007BFF; /* Bullet color */
+          font-size: 18px; /* Bullet size */
+          position: absolute;
+          left: -15px; /* Adjust bullet position */
+        }
+      </style>
 </head>
 
 <body>
@@ -68,7 +89,13 @@
         <div class="row mt-5">
             <div class="col-md-12">
                 <h3>Analytics</h3>
-                <p>{{ analytics_text }}</p>
+                <p>Final Quantum Ad Evaluation for Entertainment:
+                    <span class="bullet">- Engagement Rate (ER): 5.81/100</span>
+                    <span class="bullet">- Click-Through Rate (CTR): 4.01/100</span>
+                    <span class="bullet">- Video Completion Rate (VCR): 3.0/100</span>
+                    <span class="bullet">- Cost Per Lead (CPL): 9.6/100</span>
+                    <span class="bullet">- Return on Ad Spend (ROAS): 1.07/100</span>
+                </p>
             </div>
         </div>
 
